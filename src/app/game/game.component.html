@@ -1,0 +1,74 @@
+<div *ngIf="boxscore && boxscore.home && boxscore.away">
+  <h1 class="mat-display-3 mat-headline headline-score">{{ boxscore.home.name }} {{ boxscore.home.score }} x {{ boxscore.away.score }} {{ boxscore.away.name }}</h1>
+  <div class="highlights-wrapper" *ngIf="highlights.home.points.player">
+    <h3 class="highlight-title mat-display-1">Destaques</h3>
+    <div class="highlight-container-wrapper mat-elevation-z10">
+      <div class="highlight-container">
+        <h3 class="highlight-list-title mat-title">Pontos</h3>
+        <ul class="highlight-list">
+          <li>
+            <div class="highlight-card-wrapper" [style.background-image]="getBackground(boxscore.home)">
+              <img class="highlight-avatar" [src]="highlights.home.points.player.avatar" alt="">
+              <span class="highlight-score mat-display-4">{{ highlights.home.points.score}}</span>
+            </div>
+            <span class="mat-subheading-1">{{ highlights.home.points.player.name}}</span>
+          </li>
+          <li>
+            <div class="highlight-card-wrapper" [style.background-image]="getBackground(boxscore.away)">
+              <img class="highlight-avatar" [src]="highlights.away.points.player.avatar" alt="">
+              <span class="highlight-score mat-display-4">{{ highlights.away.points.score}}</span>
+            </div>
+            <span class="mat-subheading-1">{{ highlights.away.points.player.name}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="highlight-container">
+        <h3 class="highlight-list-title mat-title">Rebotes</h3>
+        <ul class="highlight-list">
+          <li>
+            <div class="highlight-card-wrapper" [style.background-image]="getBackground(boxscore.home)">
+              <img class="highlight-avatar" [src]="highlights.home.rebounds.player.avatar" alt="">
+              <span class="highlight-score mat-display-4">{{ highlights.home.rebounds.score}}</span>
+            </div>
+            <span class="mat-subheading-1">{{ highlights.home.rebounds.player.name}}</span>
+          </li>
+          <li>
+            <div class="highlight-card-wrapper" [style.background-image]="getBackground(boxscore.away)">
+              <img class="highlight-avatar" [src]="highlights.away.rebounds.player.avatar" alt="">
+              <span class="highlight-score mat-display-4">{{ highlights.away.rebounds.score}}</span>
+            </div>
+            <span class="mat-subheading-1">{{ highlights.away.rebounds.player.name}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="highlight-container">
+        <h3 class="highlight-list-title mat-title">Assist&ecirc;ncias</h3>
+        <ul class="highlight-list">
+          <li>
+            <div class="highlight-card-wrapper" [style.background-image]="getBackground(boxscore.home)">
+              <img class="highlight-avatar" [src]="highlights.home.assists.player.avatar" alt="">
+              <span class="highlight-score mat-display-4">{{ highlights.home.assists.score}}</span>
+            </div>
+            <span class="mat-subheading-1">{{ highlights.home.assists.player.name}}</span>
+          </li>
+          <li>
+            <div class="highlight-card-wrapper" [style.background-image]="getBackground(boxscore.away)">
+              <img class="highlight-avatar" [src]="highlights.away.assists.player.avatar" alt="">
+              <span class="highlight-score mat-display-4">{{ highlights.away.assists.score}}</span>
+            </div>
+            <span class="mat-subheading-1">{{ highlights.away.assists.player.name}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="game-wrapper">
+    <div class="boxscore-container">
+      <app-boxscore [team]="boxscore.home"></app-boxscore>
+      <app-boxscore [team]="boxscore.away"></app-boxscore>
+    </div>
+    <div class="game-info">
+      <app-realtime [gameSteps]="gameSteps"></app-realtime>
+    </div>
+  </div>
+</div>

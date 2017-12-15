@@ -1,0 +1,22 @@
+<div class="game-steps">
+  <h3 class="mat-title">
+    <span>
+      <i class="material-icons game-info-realtime-icon">timeline</i> Tempo real</span>
+  </h3>
+  <div class="game-stepper">
+    <div class="game-step-wrapper" *ngFor="let step of gameSteps | slice:0:10;">
+      <div class="game-step-header">
+        <div class="mat-step-icon">{{ step.quarter }}</div>
+        <div class="game-step-header-title mat-body-2">{{ step.time }} - {{ step.title }}</div>
+      </div>
+      <div class="game-step">
+        <div class="game-stepper-content">
+          <div class="game-step-content">
+            <span class="mat-caption">[{{ step.score }}]</span>
+            <span class="mat-body">{{ step.msg }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

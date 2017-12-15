@@ -1,0 +1,33 @@
+.team-logo {
+    vertical-align: middle;
+    width: 2em;
+    height: 2em;
+}
+
+.team-info,
+.team-name,
+.score {
+    vertical-align: middle;
+}
+
+.player-name {
+    flex-grow: 3;
+}
+
+.player-number {
+    color: #BDBDBD;
+}
+
+.boxscore-table {
+    min-width: 60em;
+    overflow: auto;
+}
+
+.boxscore-row {
+    min-height: 2.5em;
+}
+
+.boxscore {
+    overflow: scroll;
+    margin-bottom: 3em;
+}

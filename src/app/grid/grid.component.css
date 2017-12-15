@@ -1,0 +1,13 @@
+.game-grid {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.game-grid app-game-card {
+    margin: 1em;
+}
+
+.game-grid-no-games {
+    margin: 2rem;
+    color: rgb(151, 151, 151);
+}

@@ -1,0 +1,89 @@
+<h3 class="mat-title team-info">
+  <span class="team-logo-container">
+    <img src="http://lnb.com.br/wp-content/uploads/2016/10/logo-{{ team.slug }}-1-150x150.png" alt="{{ team.name }}" class="team-logo">
+  </span>
+  <span class="team-name">{{ team.name }}</span>
+</h3>
+<div class="boxscore mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort class="boxscore-table">
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="boxscore-row"></mat-row>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="player-name"> NOME </mat-header-cell>
+      <mat-cell *matCellDef="let player" class="player-name"><span class="player-number mat-caption">#{{player.number}}</span> {{player.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pts">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> PTS </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.pts}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="minutes">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> MINS </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.minutes}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ofr">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> REB O </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{ player.ofr }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="treb">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> REB T </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{ player.treb }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ast">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> AST </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.ast}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="stl">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ROU </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.stl}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="blk">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> TOC </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.blk}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pf">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> FAL </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.pf}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tur">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ERR </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.tur}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="eff">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> EFI </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.eff}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="plm">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> +/- </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{ player.plm > 0 ? '+' : '' }}{{ player.plm }}</mat-cell>
+    </ng-container>
+
+  <ng-container matColumnDef="ft">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> LL </mat-header-cell>
+    <mat-cell *matCellDef="let player">{{ player.ftm }}/{{ player.fta }}</mat-cell>
+  </ng-container>
+
+    <ng-container matColumnDef="fieldgoal">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ARR </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{ player.fgm2 }}/{{ player.fga2 }}</mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="fieldgoal3">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 3PT </mat-header-cell>
+      <mat-cell *matCellDef="let player">{{ player.fgm3 }}/{{ player.fga3 }}</mat-cell>
+    </ng-container>
+
+     
+  </mat-table>
+</div>

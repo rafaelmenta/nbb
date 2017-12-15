@@ -1,0 +1,5 @@
+<div class="game-grid">
+  <app-game-card *ngFor="let game of games" [game]="game">
+  </app-game-card>
+  <h3 class="mat-subheading-2 game-grid-no-games" *ngIf="games.length === 0">N&atilde;o h&aacute; jogos hoje</h3>
+</div>

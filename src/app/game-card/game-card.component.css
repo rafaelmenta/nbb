@@ -1,0 +1,32 @@
+.game-card {
+    padding: 0.25em 1em;
+    min-width: 10em;
+}
+
+.game-card-footer {
+    margin: inherit;
+}
+
+.score {
+    float: right;
+}
+
+.team-logo {
+    vertical-align: middle;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.team-info,
+.team-symbol,
+.score {
+    vertical-align: middle;
+}
+
+.team-info {
+    margin: 0.5em 0;
+}
+
+.clear {
+    clear: both;
+}

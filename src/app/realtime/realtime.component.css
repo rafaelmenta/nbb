@@ -1,0 +1,55 @@
+.game-step-header-title {
+    margin-left: 12px;
+}
+
+.game-step {
+    margin-left: 36px;
+    border: 0;
+    position: relative;
+}
+
+.game-step-header {
+    overflow: hidden;
+    outline: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    max-height: 24px;
+}
+
+.game-stepper-content::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    bottom: -16px;
+    left: 0;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgba(0,0,0,.12);
+}
+
+.game-step-content {
+    padding: 0 24px 24px 24px;
+}
+
+.game-stepper {
+    max-width: 20em;
+    max-height: 40em;
+    overflow: scroll;
+}
+
+.game-steps .mat-step-icon {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: #4CAF50;
+    color: #fff;
+}
+
+.game-info-realtime-icon {
+    vertical-align: middle;
+}

@@ -1,0 +1,83 @@
+.boxscore-container {
+    margin: 1em;
+    max-width: 70em;
+}
+
+.boxscore-container app-boxscore {
+    overflow: auto;
+}
+
+.headline-score {
+    text-align: center;
+}
+
+.game-wrapper {
+    display: flex;
+}
+
+.game-info,
+.boxscore-container {
+    flex: 1;
+}
+
+.game-info .mat-title {
+    margin: 16px 0 0;
+}
+
+.highlights-wrapper {
+    margin-bottom: 3em;
+    padding: 1rem;
+}
+
+.highlight-container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.highlight-title {
+    margin-bottom: 1rem;
+}
+
+.highlight-list-title {
+    margin-left: 1.5rem;
+    margin-bottom: 0;
+    padding-top: 0.5rem;
+}
+
+.highlight-list {
+    padding: 1.5em;
+    padding-top: 0;
+}
+
+.highlight-list li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 0.5em;
+    /* filter: opacity(0.2); */
+}
+
+.highlight-card-wrapper {
+    position: relative;
+    height: 8em;
+    width: 12rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.highlight-avatar {
+    height: 8em;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.highlight-score {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    width: 12rem;
+    color: white;
+    background: linear-gradient(rgba(255,255,255,0),  rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+    overflow: hidden;
+}

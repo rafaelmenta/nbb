@@ -1,0 +1,25 @@
+<mat-card class="game-card" color="primary" routerLink="jogo/{{game.id}}">
+  <mat-card-content>
+    <div class="mat-subheading-2">
+      <p class="team-info">
+        <span class="team-logo-container">
+          <img src="http://lnb.com.br/wp-content/uploads/2016/10/logo-{{teamStore.teams[game.home.team].name}}-1-150x150.png" alt="{{game.home.team}}" class="team-logo">
+        </span>
+        <span class="team-symbol">{{ game.home.team }}</span> 
+        <span class="score">{{ game.home.score }}</span>
+      </p>
+      <p class="team-info">
+          <span class="team-logo-container">
+            <img src="http://lnb.com.br/wp-content/uploads/2016/10/logo-{{teamStore.teams[game.away.team].name}}-1-150x150.png" alt="{{game.away.team}}" class="team-logo">
+          </span>
+          <span class="team-symbol">{{ game.away.team }}</span> 
+          <span class="score">{{ game.away.score }}</span>
+        </p>
+    </div>
+    <div class="clear"></div>
+  </mat-card-content>
+  <mat-card-footer class="game-card-footer mat-caption">
+    <p *ngIf="game.meta.status === GameStatus.FINAL">Final</p>
+    <p *ngIf="game.meta.status !== GameStatus.FINAL">{{ game.meta.gameTime }}</p>
+  </mat-card-footer>
+</mat-card>

@@ -20,6 +20,7 @@
   </mat-card-content>
   <mat-card-footer class="game-card-footer mat-caption">
     <p *ngIf="game.meta.status === GameStatus.FINAL">Final</p>
-    <p *ngIf="game.meta.status !== GameStatus.FINAL">{{ game.meta.gameTime }}</p>
+    <p *ngIf="game.meta.status === GameStatus.LIVE">{{ game.meta.quarter }}Q - {{ game.meta.time }}</p>
+    <!-- <p *ngIf="game.meta.status !== GameStatus.FINAL">{{ game.meta.gameTime }}</p> -->
   </mat-card-footer>
 </mat-card>

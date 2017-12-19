@@ -40,14 +40,15 @@ export interface GameInfoRaw {
 }
 
 export enum GameStatus {
+  LIVE = '1',
   FINAL = '2',
 }
 
 @Injectable()
 export class GamesService {
 
+  private isFetchingGames = false;
   private gamesSubject: BehaviorSubject<GameInfo[]> = new BehaviorSubject([]);
-
   public readonly games: Observable<GameInfo[]> = this.gamesSubject.asObservable();
 
   transformGameInfo(raw?: GameInfoRaw): GameInfo {
@@ -57,7 +58,7 @@ export class GamesService {
 
     return {
       id: raw.id,
-      live: raw.aovivo === '0' ? false : true,
+      live: raw.status === GameStatus.LIVE,
       home: {
         team: raw.equipe1,
         score: raw.pontos1,
@@ -75,14 +76,43 @@ export class GamesService {
     };
   }
 
-  constructor(protected http: HttpClient) {
-
+  private fetchGames() {
     const now = new Date();
     const URL = `http://api.draftbrasil.org/nba/boxscore-nbb/${now.getTime()}`;
 
-    http.get(URL).subscribe((data: { partidas?: GameInfoRaw[] }) => {
-      this.gamesSubject.next(data && data.partidas ? data.partidas.map(this.transformGameInfo) : []);
+    this.http.get(URL).subscribe((data: { partidas?: GameInfoRaw[] }) => {
+      let games = [];
+      if (data && data.partidas) {
+        games = data.partidas.map(this.transformGameInfo);
+      }
+      this.gamesSubject.next(games);
+
+      if (this.hasLiveGame(games)) {
+        if (!this.isFetchingGames) {
+          this.realtime();
+          this.isFetchingGames = true;
+        }
+      } else {
+        console.warn('end of realtime scores');
+        this.isFetchingGames = false;
+      }
     });
+  }
+
+  private realtime() {
+    console.warn('starting realtime scores');
+    setInterval(() => {
+      console.warn('fetching games...');
+      this.fetchGames();
+    }, 5000);
+  }
+
+  private hasLiveGame(games: GameInfo[]): boolean {
+    return games.reduce((hasGames, game) => hasGames || game.live, false);
+  }
+
+  constructor(protected http: HttpClient) {
+    this.fetchGames();
   }
 
 }

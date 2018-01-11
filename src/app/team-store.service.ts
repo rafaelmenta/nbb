@@ -35,7 +35,7 @@ export class TeamStoreService {
       symbol: 'VIT',
     },
     VASCO: {
-      id: 222,
+      id: 239,
       name: 'vasco-da-gama',
       symbol: 'VAS',
     },

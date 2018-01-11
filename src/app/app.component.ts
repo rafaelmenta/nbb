@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { GamesService, GameInfo } from './games.service';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'app';
   games: GameInfo[];
 
-  constructor(service: GamesService) {
+  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics, service: GamesService) {
     service.games.subscribe(games => { this.games = games; });
   }
 }

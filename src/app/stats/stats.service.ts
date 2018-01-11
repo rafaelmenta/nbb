@@ -13,6 +13,7 @@ export class StatsService {
 
   private statsSubject: BehaviorSubject<any> = new BehaviorSubject({});
   private fecthingRealtime = false;
+  private realtimeId: any;
   public readonly stats: Observable<any> = this.statsSubject.asObservable();
 
   private transformRawStat(input: string): StatStructured {
@@ -145,10 +146,13 @@ export class StatsService {
   }
 
   realtime(gameId) {
-    setInterval(() => {
-      console.log('fetching realtime...');
+    this.realtimeId = setInterval(() => {
       this.fetchStats(gameId);
     }, 5000);
+  }
+
+  stopRealtime() {
+    clearInterval(this.realtimeId);
   }
 
   fetchStats(gameId: number) {
@@ -164,19 +168,16 @@ export class StatsService {
 
       if (data.partida.status === '1') {
         if (!this.fecthingRealtime) {
-          console.warn('starting real time...');
           this.realtime(data.partida.id);
           this.fecthingRealtime = true;
         }
       } else {
-        console.warn('end of realtime');
         this.fecthingRealtime = false;
       }
     });
   }
 
   constructor(protected http: HttpClient, protected teamStore: TeamStoreService, protected playerStore: PlayerStoreService) {
-    console.warn('restarting box, should clear interval');
     this.fecthingRealtime = false;
   }
 

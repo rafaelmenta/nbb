@@ -93,16 +93,13 @@ export class GamesService {
           this.isFetchingGames = true;
         }
       } else {
-        console.warn('end of realtime scores');
         this.isFetchingGames = false;
       }
     });
   }
 
   private realtime() {
-    console.warn('starting realtime scores');
     setInterval(() => {
-      console.warn('fetching games...');
       this.fetchGames();
     }, 5000);
   }

@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GridComponent } from './grid/grid.component';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule,
   MatToolbarModule, MatIconModule, MatSidenavModule, MatTableModule,
@@ -22,6 +25,7 @@ import { RouteModule } from './route/route.module';
 import { HomeComponent } from './home/home.component';
 import { StatsService } from './stats/stats.service';
 import { PlayerStoreService } from './player-store/player-store.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +52,7 @@ import { PlayerStoreService } from './player-store/player-store.service';
     BrowserAnimationsModule,
     HttpClientModule,
     RouteModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
   providers: [
     GamesService,

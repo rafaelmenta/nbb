@@ -89,7 +89,7 @@ export class TeamStoreService {
     268: this.teamInfoMap.JOINVILLE,
     JLE: this.teamInfoMap.JOINVILLE,
     joinville: this.teamInfoMap.JOINVILLE,
-    222: this.teamInfoMap.VASCO,
+    239: this.teamInfoMap.VASCO,
     VAS: this.teamInfoMap.VASCO,
     vasco: this.teamInfoMap.VASCO,
     VIT: this.teamInfoMap.VITORIA,

@@ -78,7 +78,12 @@ export class TeamStoreService {
       id: 267,
       name: 'botafogo',
       symbol: 'BOT'
-    }
+    },
+    MINAS: {
+      id: 16,
+      name: 'minas',
+      symbol: 'MIN',
+    },
   };
 
   public readonly teams = {
@@ -123,6 +128,9 @@ export class TeamStoreService {
     267: this.teamInfoMap.BOTAFOGO,
     BOT: this.teamInfoMap.BOTAFOGO,
     botafogo: this.teamInfoMap.BOTAFOGO,
+    16: this.teamInfoMap.MINAS,
+    MIN: this.teamInfoMap.MINAS,
+    minas: this.teamInfoMap.MINAS,
   };
 
   constructor() { }

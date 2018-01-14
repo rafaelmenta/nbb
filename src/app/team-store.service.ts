@@ -31,6 +31,7 @@ export class TeamStoreService {
       symbol: 'JLE',
     },
     VITORIA: {
+      id: 222,
       name: 'vitoria',
       symbol: 'VIT',
     },
@@ -102,6 +103,7 @@ export class TeamStoreService {
     239: this.teamInfoMap.VASCO,
     VAS: this.teamInfoMap.VASCO,
     vasco: this.teamInfoMap.VASCO,
+    222: this.teamInfoMap.VITORIA,
     VIT: this.teamInfoMap.VITORIA,
     vitoria: this.teamInfoMap.VITORIA,
     210: this.teamInfoMap.CAXIAS,
